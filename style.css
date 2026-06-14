@@ -1,9 +1,5 @@
 ```css
-/* =========================================================
-   UNDER CONSTRUCTION
-   Minimal Cinematic Theme
-   background.webp باید کنار همین فایل باشد
-   ========================================================= */
+
 
 :root {
     --bg: #050505;
@@ -48,11 +44,17 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
 
-    transform-origin: center center;
+    transform: scale(1.18);
+    opacity: 0;
 
-    animation: kenburns 38s ease-in-out infinite alternate;
+    animation:
+        introZoom 2.8s cubic-bezier(.22, .61, .36, 1) forwards,
+        slowKenBurns 45s ease-in-out 2.8s infinite alternate;
 
-    will-change: transform;
+    will-change: transform, opacity;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 
     z-index: -3;
 }
@@ -141,7 +143,10 @@ body {
     flex-direction: column;
     align-items: flex-start;
 
-    animation: fadein 2s ease;
+    opacity: 0;
+
+    animation: textReveal 1.4s ease forwards;
+    animation-delay: 1.2s;
 }
 
 .title span {
