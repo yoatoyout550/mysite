@@ -1,274 +1,251 @@
-/**************************************************
- * UNDER CONSTRUCTION
- * Cinematic / Minimal / Luxury
- * Author: ChatGPT
- **************************************************/
+```css
+/* =========================================================
+   UNDER CONSTRUCTION
+   Minimal Cinematic Theme
+   background.webp باید کنار همین فایل باشد
+   ========================================================= */
 
 :root {
-  --bg: #050505;
-  --overlay: rgba(0, 0, 0, 0.42);
-
-  --text: #eaeaea;
-  --shadow: rgba(255, 255, 255, 0.08);
-
-  --font:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Helvetica,
-    Arial,
-    sans-serif;
+    --bg: #050505;
+    --text: #eaeaea;
+    --overlay: rgba(0, 0, 0, 0.42);
 }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html,
 body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: var(--bg);
-  font-family: var(--font);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg);
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  position: relative;
-}
-
-/**************************************************
- * BACKGROUND
- **************************************************/
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
 
 .background {
-  position: fixed;
-  inset: 0;
+    position: fixed;
+    inset: 0;
 
-  background-image: url("background.png");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+    background-image: url("background.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 
-  transform: scale(1);
+    transform-origin: center center;
 
-  animation: kenburns 42s ease-in-out infinite alternate;
+    animation: kenburns 38s ease-in-out infinite alternate;
 
-  will-change: transform;
-  z-index: 1;
+    will-change: transform;
+
+    z-index: -3;
 }
 
-/**************************************************
- * DARK OVERLAY
- **************************************************/
+/* =========================================================
+   DARK OVERLAY
+   ========================================================= */
 
 .background::after {
-  content: "";
+    content: "";
 
-  position: absolute;
-  inset: 0;
+    position: absolute;
+    inset: 0;
 
-  background: var(--overlay);
-
-  pointer-events: none;
+    background: var(--overlay);
 }
 
-/**************************************************
- * SOFT CINEMATIC VIGNETTE
- **************************************************/
+/* =========================================================
+   VIGNETTE
+   ========================================================= */
 
 .vignette {
-  position: fixed;
-  inset: 0;
+    position: fixed;
+    inset: 0;
 
-  pointer-events: none;
+    pointer-events: none;
 
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(0, 0, 0, 0) 35%,
-      rgba(0, 0, 0, 0.18) 68%,
-      rgba(0, 0, 0, 0.55) 100%
-    );
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(0, 0, 0, 0) 28%,
+            rgba(0, 0, 0, 0.18) 62%,
+            rgba(0, 0, 0, 0.62) 100%
+        );
 
-  z-index: 3;
+    z-index: 1;
 }
 
-/**************************************************
- * VERY SUBTLE TOP LIGHT
- **************************************************/
+/* =========================================================
+   SOFT CINEMATIC LIGHT
+   ========================================================= */
 
 .top-light {
-  position: fixed;
-  inset: 0;
+    position: fixed;
+    inset: 0;
 
-  pointer-events: none;
+    pointer-events: none;
 
-  background:
-    radial-gradient(
-      circle at 72% 18%,
-      rgba(255, 255, 255, 0.04),
-      transparent 32%
-    );
+    background:
+        radial-gradient(
+            circle at 75% 22%,
+            rgba(255, 255, 255, 0.04),
+            transparent 30%
+        );
 
-  mix-blend-mode: screen;
+    mix-blend-mode: screen;
 
-  z-index: 3;
+    z-index: 2;
 }
 
-/**************************************************
- * CONTENT
- **************************************************/
+/* =========================================================
+   CONTENT
+   ========================================================= */
 
 .content {
-  position: relative;
+    position: relative;
 
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100vh;
 
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 
-  padding-right: clamp(40px, 8vw, 180px);
+    padding-right: clamp(40px, 8vw, 180px);
 
-  z-index: 5;
+    z-index: 10;
 }
 
-/**************************************************
- * TITLE
- **************************************************/
+/* =========================================================
+   TITLE
+   ========================================================= */
 
 .title {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
-  user-select: none;
+    animation: fadein 2s ease;
 }
 
 .title span {
-  display: block;
+    display: block;
 
-  color: var(--text);
+    color: #eaeaea;
 
-  font-family: var(--font);
+    font-weight: 200;
 
-  font-weight: 200;
+    text-transform: uppercase;
 
-  text-transform: uppercase;
+    letter-spacing: 0.55em;
 
-  letter-spacing: 0.55em;
+    line-height: 1.05;
 
-  line-height: 1.08;
+    user-select: none;
 
-  text-shadow:
-    0 0 25px var(--shadow);
-
-  opacity: 0;
-
-  animation: fadeIn 2.2s ease forwards;
+    text-shadow:
+        0 0 25px rgba(255, 255, 255, 0.08);
 }
 
 .title span:first-child {
-  font-size: clamp(30px, 3vw, 60px);
-
-  animation-delay: .2s;
+    font-size: clamp(28px, 3vw, 58px);
 }
 
 .title span:last-child {
-  margin-top: 14px;
+    margin-top: 10px;
 
-  font-size: clamp(38px, 4vw, 82px);
-
-  animation-delay: .7s;
+    font-size: clamp(38px, 4.5vw, 86px);
 }
 
-/**************************************************
- * ANIMATIONS
- **************************************************/
+/* =========================================================
+   KEN BURNS
+   ========================================================= */
 
 @keyframes kenburns {
 
-  0% {
-    transform: scale(1) translate3d(0, 0, 0);
-  }
+    0% {
+        transform:
+            scale(1)
+            translate(-0.4%, -0.3%);
+    }
 
-  100% {
-    transform: scale(1.06) translate3d(-0.8%, -0.4%, 0);
-  }
-
-}
-
-@keyframes fadeIn {
-
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-    filter: blur(6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
+    100% {
+        transform:
+            scale(1.08)
+            translate(0.4%, 0.3%);
+    }
 
 }
 
-/**************************************************
- * RESPONSIVE
- **************************************************/
+/* =========================================================
+   FADE
+   ========================================================= */
+
+@keyframes fadein {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 900px) {
 
-  .content {
+    .content {
+        justify-content: center;
 
-    justify-content: center;
+        padding-right: 24px;
+        padding-left: 24px;
+    }
 
-    padding-right: 0;
+    .title {
+        align-items: center;
+    }
 
-    padding-left: 24px;
-    padding-right: 24px;
-
-    text-align: center;
-
-  }
-
-  .title {
-
-    align-items: center;
-
-  }
-
-  .title span {
-
-    letter-spacing: .38em;
-
-  }
+    .title span {
+        letter-spacing: 0.35em;
+        text-align: center;
+    }
 
 }
 
 @media (max-width: 600px) {
 
-  .title span:first-child {
+    .title span:first-child {
+        font-size: 24px;
+    }
 
-    font-size: 24px;
-
-  }
-
-  .title span:last-child {
-
-    margin-top: 10px;
-
-    font-size: 34px;
-
-  }
+    .title span:last-child {
+        font-size: 34px;
+    }
 
 }
+```
