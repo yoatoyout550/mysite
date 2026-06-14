@@ -1,0 +1,274 @@
+/**************************************************
+ * UNDER CONSTRUCTION
+ * Cinematic / Minimal / Luxury
+ * Author: ChatGPT
+ **************************************************/
+
+:root {
+  --bg: #050505;
+  --overlay: rgba(0, 0, 0, 0.42);
+
+  --text: #eaeaea;
+  --shadow: rgba(255, 255, 255, 0.08);
+
+  --font:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  position: relative;
+}
+
+/**************************************************
+ * BACKGROUND
+ **************************************************/
+
+.background {
+  position: fixed;
+  inset: 0;
+
+  background-image: url("background.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  transform: scale(1);
+
+  animation: kenburns 42s ease-in-out infinite alternate;
+
+  will-change: transform;
+  z-index: 1;
+}
+
+/**************************************************
+ * DARK OVERLAY
+ **************************************************/
+
+.background::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: var(--overlay);
+
+  pointer-events: none;
+}
+
+/**************************************************
+ * SOFT CINEMATIC VIGNETTE
+ **************************************************/
+
+.vignette {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0) 35%,
+      rgba(0, 0, 0, 0.18) 68%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+
+  z-index: 3;
+}
+
+/**************************************************
+ * VERY SUBTLE TOP LIGHT
+ **************************************************/
+
+.top-light {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 72% 18%,
+      rgba(255, 255, 255, 0.04),
+      transparent 32%
+    );
+
+  mix-blend-mode: screen;
+
+  z-index: 3;
+}
+
+/**************************************************
+ * CONTENT
+ **************************************************/
+
+.content {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding-right: clamp(40px, 8vw, 180px);
+
+  z-index: 5;
+}
+
+/**************************************************
+ * TITLE
+ **************************************************/
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  user-select: none;
+}
+
+.title span {
+  display: block;
+
+  color: var(--text);
+
+  font-family: var(--font);
+
+  font-weight: 200;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.55em;
+
+  line-height: 1.08;
+
+  text-shadow:
+    0 0 25px var(--shadow);
+
+  opacity: 0;
+
+  animation: fadeIn 2.2s ease forwards;
+}
+
+.title span:first-child {
+  font-size: clamp(30px, 3vw, 60px);
+
+  animation-delay: .2s;
+}
+
+.title span:last-child {
+  margin-top: 14px;
+
+  font-size: clamp(38px, 4vw, 82px);
+
+  animation-delay: .7s;
+}
+
+/**************************************************
+ * ANIMATIONS
+ **************************************************/
+
+@keyframes kenburns {
+
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: scale(1.06) translate3d(-0.8%, -0.4%, 0);
+  }
+
+}
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+}
+
+/**************************************************
+ * RESPONSIVE
+ **************************************************/
+
+@media (max-width: 900px) {
+
+  .content {
+
+    justify-content: center;
+
+    padding-right: 0;
+
+    padding-left: 24px;
+    padding-right: 24px;
+
+    text-align: center;
+
+  }
+
+  .title {
+
+    align-items: center;
+
+  }
+
+  .title span {
+
+    letter-spacing: .38em;
+
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .title span:first-child {
+
+    font-size: 24px;
+
+  }
+
+  .title span:last-child {
+
+    margin-top: 10px;
+
+    font-size: 34px;
+
+  }
+
+}
