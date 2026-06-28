@@ -1,37 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#050505" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kambiz Sardari • Cybersecurity Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
 
-    <title>Under Construction</title>
+        .tail-container { font-family: 'Inter', system_ui, sans-serif; }
+        .logo-font { font-family: 'Space Grotesk', sans-serif; }
 
-    <link rel="stylesheet" href="style.css" />
+        .hero-bg {
+            background-image: url('background.png'); 
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.65) 40%, rgba(0,0,0,0.92) 100%);
+            transition: opacity 1.8s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 1;
+        }
+
+        .scroll-indicator { animation: scrollAnim 2s infinite; }
+        @keyframes scrollAnim { 0%,100% {opacity:1;} 50%{opacity:0.4;} }
+
+        .nav-link { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+        .nav-link:hover { color:#00b4ff; transform:translateY(-1px); }
+
+        .card { transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
+        .card:hover { transform: translateY(-6px); }
+    </style>
 </head>
+<body class="bg-black text-white overflow-x-hidden">
 
-<body>
-
-    <!-- Background -->
-    <div class="background"></div>
-
-    <!-- Cinematic Overlay -->
-    <div class="vignette"></div>
-
-    <!-- Soft Light -->
-    <div class="top-light"></div>
-
-    <!-- Main Content -->
-    <main class="content">
-
-        <div class="title">
-            <span>UNDER</span>
-            <span>CONSTRUCTION</span>
+    <!-- HERO -->
+    <header id="hero" class="hero-bg min-h-screen flex items-center relative">
+        <div class="max-w-screen-2xl mx-auto px-8 text-center relative z-10">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-semibold leading-none tracking-tighter logo-font mb-2">
+                    Kambiz Sardari
+                </h1>
+                <h2 class="text-4xl md:text-5xl font-semibold leading-none tracking-tighter logo-font text-white/90">
+                    Cybersecurity Specialist
+                </h2>
+            </div>
         </div>
 
-    </main>
+        <!-- SCROLL INDICATOR -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center scroll-indicator">
+            <div class="text-xs tracking-widest mb-3">SCROLL TO EXPLORE</div>
+            <div class="w-px h-12 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
+        </div>
 
+        <!-- FADING HACKER -->
+        <div id="hacker" class="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+
+        <!-- DECOR -->
+        <div class="absolute inset-0 bg-[radial-gradient(at_top_right,#00b4ff22_0%,transparent_50%)]"></div>
+    </header>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-20 max-w-screen-2xl mx-auto px-8">
+        <div class="text-center mb-16">
+            <div class="logo-font text-4xl font-semibold tracking-tighter">My expertise</div>
+            <p class="text-white/60 mt-4 text-sm max-w-md mx-auto">Services based on science and real experiences</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="w-11 h-11 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6">
+                    <span class="text-3xl">🔴</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Red Teaming</h3>
+                <p class="text-white/70 leading-relaxed text-xs">Simulate real attacks to expose vulnerabilities and strengthen defenses</p>
+                <div class="mt-8 text-xs text-white/50">• 14 years experience</div>
+            </div>
+
+            <div class="card bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="w-11 h-11 bg-rose-500/10 rounded-2xl flex items-center justify-center mb-6">
+                    <span class="text-3xl">⛏️</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Penetration Testing</h3>
+                <p class="text-white/70 leading-relaxed text-xs">Professional ethical hacking to find and fix security weaknesses</p>
+                <div class="mt-8 text-xs text-white/50">• 98% satisfaction</div>
+            </div>
+
+            <div class="card bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="w-11 h-11 bg-amber-500/10 rounded-2xl flex items-center justify-center mb-6">
+                    <span class="text-3xl">🛡️</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Incident Response</h3>
+                <p class="text-white/70 leading-relaxed text-xs">Rapid containment and recovery from security breaches</p>
+                <div class="mt-8 text-xs text-white/50">• 100% mobile</div>
+            </div>
+
+            <div class="card bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="w-11 h-11 bg-violet-500/10 rounded-2xl flex items-center justify-center mb-6">
+                    <span class="text-3xl">🔒</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Zero Trust Architecture</h3>
+                <p class="text-white/70 leading-relaxed text-xs">Modern security model assuming breach at any moment</p>
+                <div class="mt-8 text-xs text-white/50">• 14 years experience</div>
+            </div>
+
+            <div class="card bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="w-11 h-11 bg-sky-500/10 rounded-2xl flex items-center justify-center mb-6">
+                    <span class="text-3xl">🔍</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Threat Hunting</h3>
+                <p class="text-white/70 leading-relaxed text-xs">Proactive search for hidden threats in your environment</p>
+                <div class="mt-8 text-xs text-white/50">• 98% satisfaction</div>
+            </div>
+
+            <div class="card bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="w-11 h-11 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6">
+                    <span class="text-3xl">📊</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Security Automation</h3>
+                <p class="text-white/70 leading-relaxed text-xs">AI-driven scripts and tools to respond to threats instantly</p>
+                <div class="mt-8 text-xs text-white/50">• 100% mobile</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-28 border-t border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="grid md:grid-cols-12 gap-16">
+                <div class="md:col-span-5">
+                    <div class="sticky top-28">
+                        <div class="logo-font text-5xl font-semibold tracking-tighter">Trust is not given. It is earned.</div>
+                        <p class="text-white/60 mt-6 text-sm">Just copy this code into an HTML file and you're done. No complexity, no copyright — just pure beauty.</p>
+                        
+                        <div class="mt-8 text-sm">
+                            <div class="text-white/70 font-medium">
+                                If protecting your information is a priority for you or your organization, you can contact me directly. I provide professional and fully customized cybersecurity solutions as a specialist in this field.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7 bg-white/5 border border-white/10 rounded-3xl p-10 md:p-16">
+                    <form id="contactForm" class="space-y-6">
+                        <div><input type="text" placeholder="Your name" class="w-full bg-transparent border-b border-b border-white/30 pb-3 text-sm focus:outline-none focus:border-white/70 transition-colors"></div>
+                        <div><input type="email" placeholder="Your email" class="w-full bg-transparent border-b border-b border-white/30 pb-3 text-sm focus:outline-none focus:border-white/70 transition-colors"></div>
+                        <div><textarea placeholder="Short message..." rows="3" class="w-full bg-transparent border-b border-b border-white/30 pb-3 text-sm resize-none focus:outline-none focus:border-white/70 transition-colors"></textarea></div>
+                        <button type="button" onclick="submitForm(this)" class="w-full py-5 bg-white text-black rounded-3xl text-sm font-semibold hover:bg-white/90 transition-all">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 py-12 text-center text-white/30 text-xs">
+        © 2026 Kambiz Sardari • All rights reserved.</footer>
+
+    <script>
+        function initHackerFade() {
+            const hacker = document.getElementById('hacker');
+            if (!hacker) return;
+            let opacity = 0.65;
+            const interval = setInterval(() => {
+                opacity -= 0.012;
+                if (opacity <= 0) { clearInterval(interval); hacker.style.opacity = '0'; } else hacker.style.opacity = opacity.toString();
+            }, 60);
+        }
+
+        function submitForm(btn) {
+            const original = btn.textContent;
+            btn.textContent = 'Sent ✓';
+            btn.style.backgroundColor = '#22c55e';
+            btn.style.color = 'black';
+            setTimeout(() => {
+                btn.textContent = original;
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+                document.getElementById('contactForm').reset();
+            }, 2200);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                if (a.getAttribute('href') === '#') return;
+                e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                t && t.scrollIntoView({behavior:'smooth'});
+            });
+        });
+
+        window.onload = () => {
+            initHackerFade();
+        };
+    </script>
 </body>
-
 </html>
